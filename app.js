@@ -40,6 +40,9 @@ request({
 }, function(err) {
     console.log(err);
 });
+app.get("/", (req, res, next) => {
+    res.json({createdby:"2020- ahsan mubariz",datasource:'https://covid19.sulselprov.go.id/',documentation:'read https://github.com/ahsanmubariz/covid19sulselapi.git'});
+});
 app.get("/datakab", async (req, res, next) => {
     await res.json({result:datayya});
 });
@@ -52,6 +55,4 @@ app.get("/rujukan", async (req, res, next) => {
 app.get("/about", async (req, res, next) => {
     await res.json({copyright:"2020, ahsan mubariz",datasource:'https://covid19.sulselprov.go.id/'});
 });
-app.get("/", async (req, res, next) => {
-    await res.json({created by:"2020, ahsan mubariz",datasource:'https://covid19.sulselprov.go.id/',documentation:'read https://github.com/ahsanmubariz/covid19sulselapi.git'});
-});
+
