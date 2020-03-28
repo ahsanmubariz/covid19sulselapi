@@ -53,5 +53,5 @@ app.get("/about", async (req, res, next) => {
     await res.json({copyright:"2020, ahsan mubariz",datasource:'https://covid19.sulselprov.go.id/'});
 });
 app.get("/", async (req, res, next) => {
-    await res.json({created by:"2020, ahsan mubariz",datasource:'https://covid19.sulselprov.go.id/',documentation:"read https://github.com/ahsanmubariz/covid19sulselapi.git"});
+    await res.json({created by:"2020, ahsan mubariz",datasource:'https://covid19.sulselprov.go.id/',documentation:'read https://github.com/ahsanmubariz/covid19sulselapi.git'});
 });
