@@ -1,9 +1,10 @@
 var cheerio = require('cheerio')
 var request = require('request-promise')
-var express = require("express");
-var app = express();
+var express = require("express")
+var port = process.env.PORT || 3000;
+var app = express()
 
-app.listen(3000, () => {
+app.listen(port, () => {
  console.log("Server running on port 3000, created by ahsan mubariz");
 });
 
