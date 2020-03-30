@@ -11,7 +11,7 @@ app.listen(port, () => {
 let datayya, ODP, pdp, positif, rujukan,positifWafat,pdpWafat
 
  
-cron.schedule('* */5 * * *', () => {
+cron.schedule('0 */4 * * *', () => {
     request({
         url: 'https://covid19.sulselprov.go.id/',
         "rejectUnauthorized": false
