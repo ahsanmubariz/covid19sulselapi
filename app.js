@@ -8,7 +8,7 @@ app.listen(port, () => {
  console.log("Server running on port 3000, created by ahsan mubariz");
 });
 
-let datayya, ODP, pdp, positif, rujukan
+let datayya, ODP, pdp, positif, rujukan,positifWafat,pdpWafat
 
  
 cron.schedule('* */5 * * *', () => {
@@ -21,7 +21,8 @@ cron.schedule('* */5 * * *', () => {
         pdp = JSON.parse(data.match(/var PDP =.*?\n/gm).toString().replace('var PDP = ','').replace(/'/g,'').replace(/;/g,''));
         positif = JSON.parse(data.match(/var POSITIF =.*?\n/gm).toString().replace('var POSITIF = ','').replace(/'/g,'').replace(/;/g,''));
         rujukan = JSON.parse(data.match(/var rujukan =.*?\n/gm).toString().replace('var rujukan = ','').replace(/'/g,'').replace(/;/g,''));
-    
+        positifWafat = JSON.parse(data.match(/var mmm =.*?\n/gm).toString().replace('var mmm = ','').replace(/'/g,'').replace(/;/g,''));
+        pdpWafat = JSON.parse(data.match(/var PDPMeninggal =.*?\n/gm).toString().replace('var PDPMeninggal = ','').replace(/'/g,'').replace(/;/g,''));     
     }, function(err) {
         console.log(err);
     });
@@ -36,9 +37,14 @@ request({
     pdp = JSON.parse(data.match(/var PDP =.*?\n/gm).toString().replace('var PDP = ','').replace(/'/g,'').replace(/;/g,''));
     positif = JSON.parse(data.match(/var POSITIF =.*?\n/gm).toString().replace('var POSITIF = ','').replace(/'/g,'').replace(/;/g,''));
     rujukan = JSON.parse(data.match(/var rujukan =.*?\n/gm).toString().replace('var rujukan = ','').replace(/'/g,'').replace(/;/g,''));
+    positifWafat = JSON.parse(data.match(/var mmm =.*?\n/gm).toString().replace('var mmm = ','').replace(/'/g,'').replace(/;/g,''));
+    pdpWafat = JSON.parse(data.match(/var PDPMeninggal =.*?\n/gm).toString().replace('var PDPMeninggal = ','').replace(/'/g,'').replace(/;/g,''));
 }, function(err) {
     console.log(err);
 });
+
+
+    
 
 app.get("/", (req, res, next) => {
     res.json({createdby:"2020- ahsan mubariz",datasource:'https://covid19.sulselprov.go.id/',documentation:'read https://github.com/ahsanmubariz/covid19sulselapi.git'});
@@ -47,7 +53,7 @@ app.get("/datakab", async (req, res, next) => {
     await res.json({result:datayya});
 });
 app.get("/datasebaran", async (req, res, next) => {
-    await res.json({odp:ODP,pdp:pdp,positif:positif});
+    await res.json({odp:ODP,pdp:pdp,positif:positif,positifWafat:positifWafat});
 });
 app.get("/rujukan", async (req, res, next) => {
     await res.json({rujukan:rujukan});
@@ -72,5 +78,5 @@ app.get("/statistik", async (req, res, next) => {
         e = pdp[i];
         pdpCount[e.properties.title] = (pdpCount[e.properties.title] || 0) + 1;
     }
-    await res.json({odp:odpCount,positif:positifCount,pdp:pdpCount})
+    await res.json({odp:odpCount,positif:{dirawat:positif.length,wafat:positifWafat.length},pdp:pdpCount})
 });
