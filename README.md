@@ -18,7 +18,8 @@ result will be
 {
     odp:[array of odp],
     pdp:[array of pdp],
-    positif:[array of positif]
+    positif:[array of positif],
+    positifWafat:[array of positif Wafat]
 }
 ```
 
