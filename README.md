@@ -46,6 +46,29 @@ result will be
 }
 ```
 
+Statistik Pasien
+
+```
+http://localhost:3000/statistik
+```
+result will be
+```
+{
+  "odp": {
+    "ODP - Selesai Pengawasan": x,
+    "ODP - Proses Pengawasan": x
+  },
+  "positif": {
+    "Positif - Dirawat Pasien Positif": x
+  },
+  "pdp": {
+    "PDP - Sehat": x,
+    "PDP - Dirawat PDP": x,
+    "PDP - PDP Meninggal": x
+  }
+}
+```
+
 ### Prerequisites
 
 you need
