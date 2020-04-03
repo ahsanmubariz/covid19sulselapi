@@ -60,8 +60,9 @@ result will be
     "ODP - Proses Pengawasan": x
   },
   "positif": {
-    "dirawat": x,
-    "wafat": x
+    "Positif - Meninggal": x,
+    "Positif - Sembuh": x,
+    "Positif - Dirawat Pasien Positif": x
   },
   "pdp": {
     "PDP - Sehat": x,
