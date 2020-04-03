@@ -64,6 +64,7 @@ app.get("/about", async (req, res, next) => {
 
 app.get("/statistik", async (req, res, next) => {
     var positifCount = {},e;
+    positifCount["Positif - Meninggal"]=positifWafat.length
     for (var i = 0,l=positif.length; i < l; i++) { 
         e = positif[i];
         positifCount[e.properties.title] = (positifCount[e.properties.title] || 0) + 1;
