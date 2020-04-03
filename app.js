@@ -78,5 +78,5 @@ app.get("/statistik", async (req, res, next) => {
         e = pdp[i];
         pdpCount[e.properties.title] = (pdpCount[e.properties.title] || 0) + 1;
     }
-    await res.json({odp:odpCount,positif:{dirawat:positif.length,wafat:positifWafat.length},pdp:pdpCount})
+    await res.json({odp:odpCount,positif:positifCount,pdp:pdpCount})
 });
