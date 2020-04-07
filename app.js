@@ -21,7 +21,7 @@ cron.schedule('0 */4 * * *', () => {
         pdp = JSON.parse(data.match(/var PDP =.*?\n/gm).toString().replace('var PDP = ','').replace(/'/g,'').replace(/;/g,''));
         positif = JSON.parse(data.match(/var POSITIF =.*?\n/gm).toString().replace('var POSITIF = ','').replace(/'/g,'').replace(/;/g,''));
         rujukan = JSON.parse(data.match(/var rujukan =.*?\n/gm).toString().replace('var rujukan = ','').replace(/'/g,'').replace(/;/g,''));
-        positifWafat = JSON.parse(data.match(/var mmm =.*?\n/gm).toString().replace('var mmm = ','').replace(/'/g,'').replace(/;/g,''));
+        positifWafat = JSON.parse(data.match(/var POSITIFMeninggal =.*?\n/gm).toString().replace('var POSITIFMeninggal = ','').replace(/'/g,'').replace(/;/g,''));
         pdpWafat = JSON.parse(data.match(/var PDPMeninggal =.*?\n/gm).toString().replace('var PDPMeninggal = ','').replace(/'/g,'').replace(/;/g,''));     
     }, function(err) {
         console.log(err);
@@ -37,7 +37,7 @@ request({
     pdp = JSON.parse(data.match(/var PDP =.*?\n/gm).toString().replace('var PDP = ','').replace(/'/g,'').replace(/;/g,''));
     positif = JSON.parse(data.match(/var POSITIF =.*?\n/gm).toString().replace('var POSITIF = ','').replace(/'/g,'').replace(/;/g,''));
     rujukan = JSON.parse(data.match(/var rujukan =.*?\n/gm).toString().replace('var rujukan = ','').replace(/'/g,'').replace(/;/g,''));
-    positifWafat = JSON.parse(data.match(/var mmm =.*?\n/gm).toString().replace('var mmm = ','').replace(/'/g,'').replace(/;/g,''));
+    positifWafat = JSON.parse(data.match(/var POSITIFMeninggal =.*?\n/gm).toString().replace('var POSITIFMeninggal = ','').replace(/'/g,'').replace(/;/g,''));
     pdpWafat = JSON.parse(data.match(/var PDPMeninggal =.*?\n/gm).toString().replace('var PDPMeninggal = ','').replace(/'/g,'').replace(/;/g,''));
 }, function(err) {
     console.log(err);
